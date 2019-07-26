@@ -1,5 +1,0 @@
-name = Drupal 7 Wysiwyg
-description = Cusotm module for config Wysiwyg
-core = 7.x
-package = Custom
-dependencies[] = ckeditor
