@@ -15,3 +15,35 @@ function drupal7_wysiwyg_wysiwyg_editor_settings_alter(&$settings, $conf) {
     'weight' => 1,
   ));
 }
+
+/**
+ * Implements hook_wysiwyg_plugin().
+ *
+ * @see hook_wysiwyg_plugin()
+ */
+function drupal7_wysiwyg_wysiwyg_plugin($editor, $version) {
+  $libraries_path = libraries_get_path('ckeditor');
+  $plugins = array();
+ 
+  $plugins['balloonpanel'] = array(
+    'path' => $libraries_path . '/plugins/balloonpanel',
+    'filename' => 'plugin.js',
+    'buttons' => array(
+      'Balloonpanel' => t('Balloonpanel'),
+    ),
+    'load' => TRUE,
+    'internal' => FALSE,
+  );
+ 
+  $plugins['a11ychecker'] = array(
+    'path' => $libraries_path . '/plugins/a11ychecker',
+    'filename' => 'plugin.js',
+    'buttons' => array(
+      'A11ychecker' => t('A11ychecker'),
+    ),
+    'load' => TRUE,
+    'internal' => FALSE,
+  );
+
+  return $plugins;
+}
